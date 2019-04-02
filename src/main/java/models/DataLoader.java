@@ -1,7 +1,4 @@
-package controllers;
-
-import models.Beneficiary;
-import models.DataStorage;
+package models;
 
 //perskaito csv faila
 public class DataLoader {

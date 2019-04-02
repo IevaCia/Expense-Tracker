@@ -1,30 +1,36 @@
-package models;
+package controllers;
+
+import java.util.List;
 
 public class Expense {
 
     private String date;
-    private Beneficiary beneficiary;
+    private String data;
     private double sum;
+    private List<Tag> tagList;
 
 
-    public Expense(String date, Beneficiary beneficiary, double sum) {
+    public Expense(String date, String data, double sum) {
         this.date = date;
-        this.beneficiary = beneficiary;
+        this.data = data;
         this.sum = sum;
 
     }
+
 
     public String getDate() {
         return date;
     }
 
-    public Beneficiary getBeneficiary() {
-        return beneficiary;
+    public String getData() {
+        return data;
     }
 
     public double getSum() {
         return sum;
     }
+
+
 
 }
 
