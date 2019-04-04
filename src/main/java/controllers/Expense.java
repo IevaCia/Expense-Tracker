@@ -4,22 +4,23 @@ import java.util.List;
 
 public class Expense {
 
-    private String date;
+    private String timeStamp;
     private String data;
     private double sum;
     private List<Tag> tagList;
 
 
-    public Expense(String date, String data, double sum) {
-        this.date = date;
+    public Expense(String timeStamp, String data, double sum) {
+        this.timeStamp = timeStamp;
         this.data = data;
         this.sum = sum;
+
 
     }
 
 
-    public String getDate() {
-        return date;
+    public String getTimeStamp() {
+        return timeStamp;
     }
 
     public String getData() {
@@ -30,7 +31,12 @@ public class Expense {
         return sum;
     }
 
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
+    }
 
-
+    public List<Tag> getTagList() {
+        return tagList;
+    }
 }
 

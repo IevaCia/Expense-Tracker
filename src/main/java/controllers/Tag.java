@@ -26,11 +26,15 @@ public class Tag {
     }
 
     public boolean pass(String data) {
-        //TODO
 
         for (Rule rul : rules) {
-            if (data.contains(rul.getRuleString())) {
-                return true;
+
+
+            if (rul.isContains()) {
+                if (data.contains(rul.getRuleString())) {
+
+                    return true;
+                }
             }
             if (!rul.isContains()) {
                 if (!data.contains(rul.getRuleString()))

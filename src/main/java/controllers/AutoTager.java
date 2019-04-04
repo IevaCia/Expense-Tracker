@@ -16,9 +16,9 @@ public class AutoTager {
         this.tags = new ArrayList<>(Arrays.asList(tags));
     }
 
-    public List<Tag> tagging(String data) {
-//TODO
-        List<Tag> newTags = new ArrayList();
+    public List<Tag> tagging(String data) {//pagal paduota data metodas patikrina ar atitinka data rulsus
+
+        List<Tag> newTags = new ArrayList<>();
 
         for (Tag tag : tags) {
             if (tag.pass(data)) {
@@ -29,11 +29,19 @@ public class AutoTager {
         return newTags; // new list of passed tags
     }
 
-    public double expensesByTags(Tag... tags) {
-// as manau kad tai turetu buti atskira klase kurioje vyks skaiciavimai
-        // TODO
-        return 0;
-    }
+    public double expensesByTags(List<Expense> exp, List<Tag> tags) {
 
+        double suma = 0;
+
+        for (Expense ex : exp) {
+
+
+            if (ex.getTagList().containsAll(tags)) {
+                suma += ex.getSum();
+            }
+
+        }
+        return suma;
+    }
 }
 
