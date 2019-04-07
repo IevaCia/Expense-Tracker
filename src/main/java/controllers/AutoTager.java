@@ -21,7 +21,7 @@ public class AutoTager {
         List<Tag> newTags = new ArrayList<>();
 
         for (Tag tag : tags) {
-            if (tag.pass(data)) {
+            if (tag.pass(data.toLowerCase())) {
                 newTags.add(tag); // add to aplied tags list
             }
         }
@@ -35,6 +35,7 @@ public class AutoTager {
 
         for (Expense ex : exp) {
 
+            ex.setTagList(tagging(ex.getData().toLowerCase()));
 
             if (ex.getTagList().containsAll(tags)) {
                 suma += ex.getSum();
@@ -43,5 +44,6 @@ public class AutoTager {
         }
         return suma;
     }
+
 }
 

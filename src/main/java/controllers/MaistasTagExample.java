@@ -21,20 +21,15 @@ public class MaistasTagExample {
 
         List<Expense> ex = new ArrayList<>();
 
-
-        ex.add(new Expense("2019/12/22", "UAB maxima", 29.2));
-        ex.add(new Expense("2019/12/23", "UAB norfa", 2.2));
-        ex.add(new Expense("2019/12/24", "UAB transportas", 12.2));
-        ex.add(new Expense("2019/12/25", "UAB maxima", 20.00));
+        ex.add(new Expense("2019/12/22", "UAB Maxima", 29.2));
+        ex.add(new Expense("2019/12/23", "UAB Norfa", 2.2));
+//        ex.add(new Expense("2019/12/24", "UAB transportas", 12.2));
+//        ex.add(new Expense("2019/12/25", "UAB maxima", 20.00));
 
         tag.add(maistas);
-//        tag.add(butinosIslaidos);
+        tag.add(butinosIslaidos);
 
-        for (Expense exp : ex) {
 
-            exp.setTagList(autot.tagging(exp.getData()));
-
-        }
         System.out.println(autot.expensesByTags(ex, tag));
 
     }
