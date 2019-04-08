@@ -1,4 +1,6 @@
-package controllers;
+package controllers.Factory;
+
+import controllers.Rule;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -11,14 +13,19 @@ public class Tag {
 
     private List<Rule> rules = new ArrayList<Rule>();
 
-    public Tag(String pavadinimas, Rule... rules) {
+     Tag(String pavadinimas, Rule... rules) {
         this.pavadinimas = pavadinimas;
         this.rules.addAll(Arrays.asList(rules));
     }
 
-    public Tag(String pavadinimas, List<Rule> rules) {
+     Tag(String pavadinimas, List<Rule> rules) {
         this.pavadinimas = pavadinimas;
         this.rules.addAll(rules);
+    }
+
+    public void setRules(Rule... rules) {
+        this.rules = new ArrayList<>();
+            this.rules.addAll(Arrays.asList(rules));
     }
 
     public String getPavadinimas() {
@@ -31,13 +38,13 @@ public class Tag {
 
 
             if (rul.isContains()) {
-                if (data.contains(rul.getRuleString())) {
+                if (data.toLowerCase().contains(rul.getRuleString().toLowerCase())) {
 
                     return true;
                 }
             }
             if (!rul.isContains()) {
-                if (!data.contains(rul.getRuleString()))
+                if (!data.toLowerCase().contains(rul.getRuleString().toLowerCase()))
                     return true;
             }
         }

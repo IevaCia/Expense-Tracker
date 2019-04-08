@@ -1,4 +1,4 @@
-package controllers;
+package controllers.Factory;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class Expense {
     private List<Tag> tagList;
 
 
-    public Expense(String timeStamp, String data, double sum) {
+     Expense(String timeStamp, String data, double sum) {
         this.timeStamp = timeStamp;
         this.data = data;
         this.sum = sum;

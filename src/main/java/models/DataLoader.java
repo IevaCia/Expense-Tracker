@@ -14,7 +14,4 @@ public class DataLoader {
 //turi kurti nauja expenso obj. ir paduoti unkown kategorija jei neegzituoja kategorija
     }
 
-
-
-
 }

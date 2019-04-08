@@ -1,5 +1,8 @@
 package controllers;
 
+import controllers.Factory.Expense;
+import controllers.Factory.Tag;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +24,7 @@ public class AutoTager {
         List<Tag> newTags = new ArrayList<>();
 
         for (Tag tag : tags) {
-            if (tag.pass(data.toLowerCase())) {
+            if (tag.pass(data)) {
                 newTags.add(tag); // add to aplied tags list
             }
         }
@@ -35,13 +38,12 @@ public class AutoTager {
 
         for (Expense ex : exp) {
 
-            ex.setTagList(tagging(ex.getData().toLowerCase()));
-
             if (ex.getTagList().containsAll(tags)) {
                 suma += ex.getSum();
             }
 
         }
+
         return suma;
     }
 
