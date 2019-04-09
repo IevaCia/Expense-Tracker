@@ -17,16 +17,16 @@ public class MaistasTagExample {
 
         AutoTager autot = new AutoTager(DataStorage.getTags());
 
-        ExpenseFactory.createInstance("2019/12/22", "UAB Maxima", 29.2);
-        ExpenseFactory.createInstance("2019/12/23", "UAB Norfa", 2.2);
+//        ExpenseFactory.createInstance("2019/12/22", "UAB Maxima", 29.2);
+//        ExpenseFactory.createInstance("2019/12/23", "UAB Norfa", 2.2);
 //         ExpenseFactory.createInstance("2019/12/24", "UAB transportas", 12.2));
 //         ExpenseFactory.createInstance("2019/12/25", "UAB maxima", 20.00));
 
         System.out.println(autot.expensesByTags(DataStorage.getExpenses(), DataStorage.getTags()));
 
-        CsvLoader dl = new CsvLoader();
-        dl.DataLoader("failas.csv");
 
+CsvLoader cl = new CsvLoader();
+        System.out.println(cl.load());
 
     }
 }

@@ -1,66 +1,56 @@
 package controllers.Factory;
 
+import javax.swing.text.html.parser.Parser;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+
 
 //perskaito csv faila
 
 public class CsvLoader {
 
-    private Scanner scan;
 
-    public void DataLoader(String directory) {
-
-        boolean found = false;
-        int count = 0;
-        int counter = 0;
+    public List<Expense> load() {
+        List<Expense> ex = new ArrayList<>();
+        File f = new File("/Applications/Java Kursai/JavaProjektas/Expense-Tracker/src/main/java/controllers/Factory/failas.csv");
         try {
-            scan = new Scanner(new File("/Applications/Java Kursai/JavaProjektas/Expense-Tracker/src/main/java/controllers/Factory/failas.csv"));
-            scan.useDelimiter(",");
+            List<String> lines = FileUtils.readLines(f, java.nio.charset.StandardCharsets.UTF_8);
 
+            lines.remove(0);
+            lines.remove(0);
+            lines.remove(lines.size() - 1);
+            lines.remove(lines.size() - 1);
+            lines.remove(lines.size() - 1);
 
-            while (scan.hasNext()) {
+            for (String line : lines) {
 
-                String timeStamp = "";
-                String data = "";
-                String sum = "";
+                String[] colums = line.split("\",");
 
-                if (count >= 27) {
-                    counter++;
-                }
+                for (int i = 0; i < colums.length; i++) {
 
-                if (counter == 4) {
-                    timeStamp = scan.next();
-                    found = true;
-
-                }
-                if (counter == 5) {
-                    data = scan.next();
-                    found = true;
+                    if (colums[i] != null && !colums[i].isEmpty()) {
+                        colums[i] = colums[i].substring(1);
+                    }
 
                 }
-                if (counter == 7) {
-                    sum = scan.next();
-                    found = true;
-                }
-                if (counter == 13) {
-                    counter = 0;
-                  //  ExpenseFactory.createInstance(timeStamp,data, sum);
-                }
-                count++;
-                if (!found) {
-                    scan.next();
-                }
-                found = false;
+                ExpenseFactory ef = new ExpenseFactory();
+                ex.add(ef.createInstance(colums[2], colums[3], Double.parseDouble(colums[5])));
+
             }
+            return ex;
         } catch (Exception e) {
-            String str = "nerasta";
+            System.out.println("Something went wrong.");
+        } finally {
+            System.out.println("The 'try catch' is finished.");
         }
+
+        return ex;
     }
-
 }
-
-
-
 

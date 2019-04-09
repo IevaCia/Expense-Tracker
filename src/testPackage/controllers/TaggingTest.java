@@ -25,8 +25,8 @@ public class TaggingTest {
 
         autot = new AutoTager(DataStorage.getTags());
 
-        ExpenseFactory.createInstance("2019/12/22", "UAB maxima", 29.2);
-        ExpenseFactory.createInstance("2019/12/23", "UAB norfa", 2.2);
+//        ExpenseFactory.createInstance("2019/12/22", "UAB maxima", 29.2);
+//        ExpenseFactory.createInstance("2019/12/23", "UAB norfa", 2.2);
 
     }
 

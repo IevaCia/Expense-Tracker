@@ -5,7 +5,7 @@ import controllers.DataStorage;
 
 public class ExpenseFactory {
 
-    public static void createInstance(String timeStamp, String data, double sum) {
+    public Expense createInstance(String timeStamp, String data, double sum) {
         // sukurti expensa
         //prideti jam taggus
         // returninti expensa
@@ -15,7 +15,7 @@ public class ExpenseFactory {
 
         ex.setTagList(new AutoTager().tagging(ex.getData()));
 
-        DataStorage.addExpense(ex);
+        return ex;
     }
 
 }
