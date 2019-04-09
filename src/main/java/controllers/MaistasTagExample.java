@@ -1,12 +1,7 @@
 package controllers;
 
-import controllers.Factory.Expense;
-import controllers.Factory.ExpenseFactory;
-import controllers.Factory.Tag;
-import controllers.Factory.TagFactory;
+import controllers.Factory.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MaistasTagExample {
 
@@ -24,10 +19,14 @@ public class MaistasTagExample {
 
         ExpenseFactory.createInstance("2019/12/22", "UAB Maxima", 29.2);
         ExpenseFactory.createInstance("2019/12/23", "UAB Norfa", 2.2);
-//        ex.add(new Expense("2019/12/24", "UAB transportas", 12.2));
-//        ex.add(new Expense("2019/12/25", "UAB maxima", 20.00));
+//         ExpenseFactory.createInstance("2019/12/24", "UAB transportas", 12.2));
+//         ExpenseFactory.createInstance("2019/12/25", "UAB maxima", 20.00));
 
         System.out.println(autot.expensesByTags(DataStorage.getExpenses(), DataStorage.getTags()));
+
+        CsvLoader dl = new CsvLoader();
+        dl.DataLoader("failas.csv");
+
 
     }
 }
