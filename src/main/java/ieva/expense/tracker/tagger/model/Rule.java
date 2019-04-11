@@ -1,4 +1,4 @@
-package controllers;
+package ieva.expense.tracker.tagger.model;
 
 public class Rule {
 

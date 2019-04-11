@@ -27,11 +27,15 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
+
     </dependencies>
 
 
 
     <build>
+        <testSourceDirectory>
+            src/main/tests
+        </testSourceDirectory>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>

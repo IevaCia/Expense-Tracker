@@ -1,6 +1,6 @@
-package controllers.Factory;
+package ieva.expense.tracker.tagger;
 
-import controllers.Rule;
+import ieva.expense.tracker.tagger.model.Rule;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -13,19 +13,19 @@ public class Tag {
 
     private List<Rule> rules = new ArrayList<Rule>();
 
-     Tag(String pavadinimas, Rule... rules) {
+    public Tag(String pavadinimas, Rule... rules) {
         this.pavadinimas = pavadinimas;
         this.rules.addAll(Arrays.asList(rules));
     }
 
-     Tag(String pavadinimas, List<Rule> rules) {
+    public Tag(String pavadinimas, List<Rule> rules) {
         this.pavadinimas = pavadinimas;
         this.rules.addAll(rules);
     }
 
     public void setRules(Rule... rules) {
         this.rules = new ArrayList<>();
-            this.rules.addAll(Arrays.asList(rules));
+        this.rules.addAll(Arrays.asList(rules));
     }
 
     public String getPavadinimas() {
@@ -53,4 +53,8 @@ public class Tag {
 
     }
 
+    @Override
+    public String toString() {
+        return pavadinimas ;
+    }
 }

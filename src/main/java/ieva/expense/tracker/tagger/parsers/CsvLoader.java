@@ -1,24 +1,25 @@
-package controllers.Factory;
+package ieva.expense.tracker.tagger.parsers;
 
-import javax.swing.text.html.parser.Parser;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.List;
-import java.io.IOException;
 
+import ieva.expense.tracker.tagger.model.Expense;
 import org.apache.commons.io.FileUtils;
 
 
-//perskaito csv faila
+public class CsvLoader implements DataParser {
 
-public class CsvLoader {
+    private String path;
 
+    public CsvLoader(String path) {
+        this.path = path;
+    }
 
-    public List<Expense> load() {
+    @Override
+    public List<Expense> parse() {
         List<Expense> ex = new ArrayList<>();
-        File f = new File("/Applications/Java Kursai/JavaProjektas/Expense-Tracker/src/main/java/controllers/Factory/failas.csv");
+        File f = new File(path);
         try {
             List<String> lines = FileUtils.readLines(f, java.nio.charset.StandardCharsets.UTF_8);
 
@@ -39,18 +40,16 @@ public class CsvLoader {
                     }
 
                 }
-                ExpenseFactory ef = new ExpenseFactory();
-                ex.add(ef.createInstance(colums[2], colums[3], Double.parseDouble(colums[5])));
+                Expense expense = new Expense(colums[2], colums[3], Double.parseDouble(colums[5]));
+
+                ex.add(expense);
 
             }
-            return ex;
         } catch (Exception e) {
-            System.out.println("Something went wrong.");
-        } finally {
-            System.out.println("The 'try catch' is finished.");
+            throw new RuntimeException(e);
         }
-
         return ex;
     }
+
 }
 

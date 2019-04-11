@@ -1,8 +1,11 @@
-package controllers.Factory;
+package ieva.expense.tracker.tagger.model;
+
+import ieva.expense.tracker.tagger.Tag;
+import ieva.expense.tracker.tagger.app.MaistasTagExample;
 
 import java.util.List;
 
-public class Expense {
+public class Expense extends MaistasTagExample {
 
     private String timeStamp;
     private String data;
@@ -10,7 +13,7 @@ public class Expense {
     private List<Tag> tagList;
 
 
-     Expense(String timeStamp, String data, double sum) {
+     public Expense(String timeStamp, String data, double sum) {
         this.timeStamp = timeStamp;
         this.data = data;
         this.sum = sum;
@@ -38,5 +41,6 @@ public class Expense {
     public List<Tag> getTagList() {
         return tagList;
     }
+
 }
 
