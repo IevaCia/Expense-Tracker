@@ -1,4 +1,4 @@
-package ieva.expense.tracker.utils;
+package ieva.expense.tracker.tagger.expense.tracker.utils;
 
 public class EqUtils {
 

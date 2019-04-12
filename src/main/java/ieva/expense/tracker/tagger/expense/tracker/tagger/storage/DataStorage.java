@@ -1,7 +1,6 @@
-package ieva.expense.tracker.tagger.storage;
+package ieva.expense.tracker.tagger.expense.tracker.tagger.storage;
 
-import ieva.expense.tracker.tagger.Tag;
-import ieva.expense.tracker.tagger.model.Expense;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.model.Expense;
 
 import java.util.List;
 

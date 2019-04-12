@@ -1,10 +1,10 @@
-package ieva.expense.tracker.tagger.parsers;
+package ieva.expense.tracker.tagger.expense.tracker.tagger.parsers;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import ieva.expense.tracker.tagger.model.Expense;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.model.Expense;
 import org.apache.commons.io.FileUtils;
 
 

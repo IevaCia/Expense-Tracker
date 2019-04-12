@@ -1,6 +1,6 @@
-package ieva.expense.tracker.tagger;
+package ieva.expense.tracker.tagger.expense.tracker.tagger;
 
-import ieva.expense.tracker.tagger.model.Rule;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.model.Rule;
 
 import java.util.List;
 import java.util.ArrayList;

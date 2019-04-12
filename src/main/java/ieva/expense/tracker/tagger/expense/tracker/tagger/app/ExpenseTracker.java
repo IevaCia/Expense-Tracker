@@ -1,13 +1,13 @@
-package ieva.expense.tracker.tagger.app;
+package ieva.expense.tracker.tagger.expense.tracker.tagger.app;
 
-import ieva.expense.tracker.tagger.AutoTager;
-import ieva.expense.tracker.tagger.Tag;
-import ieva.expense.tracker.tagger.model.Expense;
-import ieva.expense.tracker.tagger.parsers.DataParser;
-import ieva.expense.tracker.tagger.parsers.ParserFactory;
-import ieva.expense.tracker.tagger.parsers.ParserType;
-import ieva.expense.tracker.tagger.storage.DataStorage;
-import ieva.expense.tracker.tagger.storage.DataStorageFactory;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.AutoTager;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.Tag;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.model.Expense;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.parsers.DataParser;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.parsers.ParserFactory;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.parsers.ParserType;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.storage.DataStorage;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.storage.DataStorageFactory;
 
 import java.util.List;
 
@@ -16,6 +16,7 @@ public class ExpenseTracker {
 
     private DataStorage ds;
     private List<Expense> expenses;
+    private List<Tag> tags;
     private AutoTager at;
 
     public ExpenseTracker() {
@@ -24,20 +25,22 @@ public class ExpenseTracker {
         at = new AutoTager();
         autotagging(expenses);
 
+
     }
 
     private void autotagging(List<Expense> expenses) {
 
-        at.expensesTagging(expenses);
+        at.taggingAll(expenses);
     }
 
     public List<Expense> showExpensesByTags(String tag) {
         return at.expensesByTags(expenses,tag);
     }
 
-//    public double amountByTags(List<Expense> ex,List<String> tags) {
-//        return null;
-//    }
+    public double amountByTags(List<Expense> ex,List<String> tags) {
+
+        return at.amountByTags(ex,tags);
+    }
 
 //    public String showExpensesByTimeStamp(String time) {
 //        return null;

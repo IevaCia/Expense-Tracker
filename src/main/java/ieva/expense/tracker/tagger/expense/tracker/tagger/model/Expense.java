@@ -1,7 +1,7 @@
-package ieva.expense.tracker.tagger.model;
+package ieva.expense.tracker.tagger.expense.tracker.tagger.model;
 
-import ieva.expense.tracker.tagger.Tag;
-import ieva.expense.tracker.tagger.app.MaistasTagExample;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.Tag;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.app.MaistasTagExample;
 
 import java.util.List;
 
@@ -41,6 +41,11 @@ public class Expense extends MaistasTagExample {
     public List<Tag> getTagList() {
         return tagList;
     }
+public Tag getTagByName(String tagName) {
+    for (Tag t:tagList) {
 
+    }
+    return
+}
 }
 

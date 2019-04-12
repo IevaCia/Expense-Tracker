@@ -1,7 +1,7 @@
-package ieva.expense.tracker.tagger;
+package ieva.expense.tracker.tagger.expense.tracker.tagger;
 
-import ieva.expense.tracker.tagger.model.Expense;
-import ieva.expense.tracker.utils.EqUtils;
+import ieva.expense.tracker.tagger.expense.tracker.tagger.model.Expense;
+import ieva.expense.tracker.tagger.expense.tracker.utils.EqUtils;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class AutoTager {
 
-    private List<Tag> tags  = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
 
     public AutoTager(List<Tag> tags) {
         this.tags.addAll(tags);
@@ -24,7 +24,7 @@ public class AutoTager {
         this.tags.addAll(new ArrayList<>(Arrays.asList(tags)));
     }
 
-    public List<Tag> tagging(String data) {//pagal paduota data metodas patikrina ar atitinka data rulsus
+    public List<Tag> taggingOne(String data) {//pagal paduota data metodas patikrina ar atitinka data rulsus
 
         List<Tag> newTags = new ArrayList<>();
 
@@ -37,21 +37,24 @@ public class AutoTager {
         return newTags; // new list of passed tags
     }
 
-    public void expensesTagging(List<Expense> expenses){
-        for (Expense exp:expenses) {
-          exp.setTagList( tagging(exp.getData()));
+    public void taggingAll(List<Expense> expenses) {
+        for (Expense exp : expenses) {
+            exp.setTagList(taggingOne(exp.getData()));
         }
     }
 
-    public double amountByTags(List<Expense> exp, List<Tag> tags) {
+    public double amountByTags(List<Expense> exp, List<String> tagNames) {
 
         double suma = 0;
 
         for (Expense ex : exp) {
-
-            if (ex.getTagList().containsAll(tags)) {
-                suma += ex.getSum();
+            for (String tagName : tagNames) {
+                ex.getTagByName(tagName)
+                if (ex.getTagList(). (tags)){
+                    suma += ex.getSum();
+                }
             }
+
 
         }
 
@@ -64,8 +67,8 @@ public class AutoTager {
 
         for (Expense ex : exp) {
 
-            for (Tag tag: ex.getTagList()) {
-                if (EqUtils.eqIgnCase(tag.getPavadinimas(),tagName)) {
+            for (Tag tag : ex.getTagList()) {
+                if (EqUtils.eqIgnCase(tag.getPavadinimas(), tagName)) {
                     newExpenses.add(ex);
                 }
             }
@@ -73,7 +76,6 @@ public class AutoTager {
 
         return newExpenses;
     }
-
 
 
 }

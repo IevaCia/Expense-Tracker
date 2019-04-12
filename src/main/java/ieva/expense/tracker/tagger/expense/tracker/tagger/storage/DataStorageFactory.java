@@ -1,6 +1,4 @@
-package ieva.expense.tracker.tagger.storage;
-
-import ieva.expense.tracker.tagger.storage.DataStorage;
+package ieva.expense.tracker.tagger.expense.tracker.tagger.storage;
 
 public class DataStorageFactory {
 
