@@ -35,7 +35,7 @@ public class ExpenseTracker {
         return at.expensesByTags(expenses,tag);
     }
 
-//    public List<Expense> showExpensesByTags(List<String> tags) {
+//    public double amountByTags(List<Expense> ex,List<String> tags) {
 //        return null;
 //    }
 
