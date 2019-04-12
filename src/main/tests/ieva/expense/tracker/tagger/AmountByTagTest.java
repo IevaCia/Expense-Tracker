@@ -40,7 +40,7 @@ public class AmountByTagTest {
     @Test
     public void successTest() {
 
-        Assert.assertEquals(31.4, autot.amountByTags(ex, tag), CENT);
+        Assert.assertEquals(31.4, autot.amountByTags(ex, "Maistas", "ButinosIslaidos"), CENT);
     }
 
     @Test
@@ -56,10 +56,12 @@ public class AmountByTagTest {
         tag.add(maistas);
         tag.add(butinosIslaidos);
 
+        autot = new AutoTager(tag);
         autot.taggingAll(ex);
 
 
-        Assert.assertEquals(0.0, autot.amountByTags(ex, tag), CENT);
+
+        Assert.assertEquals(0.0, autot.amountByTags(ex, "Maistas", "ButinosIslaidos"), CENT);
 
     }
 

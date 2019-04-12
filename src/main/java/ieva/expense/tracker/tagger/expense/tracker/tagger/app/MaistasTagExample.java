@@ -27,7 +27,7 @@ public class MaistasTagExample {
         List<Expense> expensesByTags = et.showExpensesByTags("Maistas");
 
         for (Expense expense : expensesByTags) {
-            System.out.println(expense.getTimeStamp() + " " + expense.getData() + " " + expense.getSum() + " " + expense.getTagList().toString());
+            System.out.println(expense.getTimeStamp() + " " + expense.getData() + " " + expense.getSum() + " " + expense.getTagNames().toString());
         }
 
 

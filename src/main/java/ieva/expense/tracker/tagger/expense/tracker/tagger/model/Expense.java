@@ -1,26 +1,22 @@
 package ieva.expense.tracker.tagger.expense.tracker.tagger.model;
 
-import ieva.expense.tracker.tagger.expense.tracker.tagger.Tag;
-import ieva.expense.tracker.tagger.expense.tracker.tagger.app.MaistasTagExample;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Expense extends MaistasTagExample {
+public class Expense {
 
     private String timeStamp;
     private String data;
     private double sum;
-    private List<Tag> tagList;
+    private List<String> tagNames = new ArrayList<>();
 
-
-     public Expense(String timeStamp, String data, double sum) {
+    public Expense(String timeStamp, String data, double sum) {
         this.timeStamp = timeStamp;
         this.data = data;
         this.sum = sum;
 
-
     }
-
 
     public String getTimeStamp() {
         return timeStamp;
@@ -34,18 +30,24 @@ public class Expense extends MaistasTagExample {
         return sum;
     }
 
-    public void setTagList(List<Tag> tagList) {
-        this.tagList = tagList;
+    public List<String> getTagNames() {
+        return tagNames;
     }
 
-    public List<Tag> getTagList() {
-        return tagList;
-    }
-public Tag getTagByName(String tagName) {
-    for (Tag t:tagList) {
+    public boolean containsIgnoreCaseOneOrMore(List<String> tagNames) {
 
+        for (String tagEx : this.tagNames) {
+            for (String tagUser : tagNames) {
+                if (tagEx.equalsIgnoreCase(tagUser)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
-    return
+
+    public boolean containsIgnoreCaseOneOrMore(String... tagNames) {
+        return containsIgnoreCaseOneOrMore(Arrays.asList(tagNames));
+    }
+
 }
-}
-

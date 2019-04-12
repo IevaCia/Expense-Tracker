@@ -15,7 +15,6 @@ public class AutoTager {
         this.tags.addAll(tags);
     }
 
-
     public AutoTager(Tag... tags) {
         addTags(tags);
     }
@@ -24,7 +23,7 @@ public class AutoTager {
         this.tags.addAll(new ArrayList<>(Arrays.asList(tags)));
     }
 
-    public List<Tag> taggingOne(String data) {//pagal paduota data metodas patikrina ar atitinka data rulsus
+    public List<Tag> taggingOne(String data) {// pagal paduota data metodas patikrina ar atitinka data rulsus
 
         List<Tag> newTags = new ArrayList<>();
 
@@ -39,44 +38,39 @@ public class AutoTager {
 
     public void taggingAll(List<Expense> expenses) {
         for (Expense exp : expenses) {
-            exp.setTagList(taggingOne(exp.getData()));
+
+            List<Tag> tags = taggingOne(exp.getData());
+
+            for (Tag tag : tags) {
+                exp.getTagNames().add(tag.getPavadinimas());
+            }
+
         }
     }
 
     public double amountByTags(List<Expense> exp, List<String> tagNames) {
-
         double suma = 0;
-
         for (Expense ex : exp) {
-            for (String tagName : tagNames) {
-                ex.getTagByName(tagName)
-                if (ex.getTagList(). (tags)){
-                    suma += ex.getSum();
-                }
+            if (ex.containsIgnoreCaseOneOrMore(tagNames)) {
+                suma += ex.getSum();
             }
-
-
         }
-
         return suma;
     }
 
-    public List<Expense> expensesByTags(List<Expense> exp, String tagName) {
+    public double amountByTags(List<Expense> exp, String... tagNames) {
+        return amountByTags(exp, Arrays.asList(tagNames));
+    }
+
+    public List<Expense> expensesByTags(List<Expense> exp, String... tagName) {
 
         List<Expense> newExpenses = new ArrayList<>();
-
         for (Expense ex : exp) {
-
-            for (Tag tag : ex.getTagList()) {
-                if (EqUtils.eqIgnCase(tag.getPavadinimas(), tagName)) {
-                    newExpenses.add(ex);
-                }
+            if (ex.containsIgnoreCaseOneOrMore(tagName)) {
+                newExpenses.add(ex);
             }
         }
-
         return newExpenses;
     }
 
-
 }
-
